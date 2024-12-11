@@ -15,7 +15,7 @@ func main() {
 	defer client.Close()
 
 	// Definir el nombre que se enviará al servidor
-	name := "Juan"
+	name := "Jefferson"
 	var reply string
 
 	// Realizar la llamada RPC a la función SayHello
