@@ -1,17 +1,20 @@
-# Usa la imagen oficial de Go como base
-FROM golang:1.19-alpine
+# Usa una imagen base de Go
+FROM golang:1.19
 
-# Define el directorio de trabajo dentro del contenedor
+# Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copia los archivos necesarios al contenedor
+# Copia los archivos del proyecto al contenedor
 COPY . .
 
-# Instala las dependencias y compila el código Go
-RUN go mod tidy && go build -o server .
+# Descarga las dependencias de Go
+RUN go mod tidy
 
-# Expone el puerto 50051 (o el que utilices)
-EXPOSE 50051
+# Construye la aplicación
+RUN go build -o app .
+
+# Expone el puerto en el que corre tu aplicación (por ejemplo, 8080)
+EXPOSE 4000
 
 # Comando para ejecutar la aplicación
-CMD ["./server"]
+CMD ["./app"]
