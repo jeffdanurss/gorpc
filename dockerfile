@@ -4,7 +4,7 @@ FROM golang:1.19-alpine
 # Define el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copia el código fuente de tu aplicación al contenedor
+# Copia los archivos necesarios al contenedor
 COPY . .
 
 # Instala las dependencias y compila el código Go
